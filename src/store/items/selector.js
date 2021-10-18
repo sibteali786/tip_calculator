@@ -9,5 +9,10 @@ export const selectSubtotal = createSelector([selectItems], (items) =>
 
 export const selectTipAmount = createSelector(
   [selectSubtotal, selectTipPercentage],
-  (subtotal, tipPercentage) => subtotal + tipPercentage
+  (subtotal, tipPercentage) => subtotal * tipPercentage
+);
+
+export const selectTotal = createSelector(
+  [selectSubtotal, selectTipAmount],
+  (subtotal, tipAmount) => subtotal + tipAmount
 );
